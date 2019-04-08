@@ -1,3 +1,5 @@
+
+
 module.exports = function(sequelize, DataTypes) {
     var Survey = sequelize.define("Survey", {
       question1: DataTypes.TEXT,
