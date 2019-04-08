@@ -1,50 +1,49 @@
-var mysql = require('mysql');
-var express = require('express');
-var session = require('express-session');
-var bodyParser = require('body-parser');
-var path = require('path');
+var User = require("../models/users");
+var Survey = require("../models/surveys");
+
+module.exports= function(app){
+
+  app.get("/api/:user", function(req, res) {
+    if (req.params.user) {
+      // Display the JSON for ONLY that character.
+      // (Note how we're using the ORM here to run our searches)
+      User.findOne({
+        where: {
+          routeName: req.params.user
+        }
+      }).then(function(result) {
+        return res.json(result);
+      });
+    } else {
+      User.findAll().then(function(result) {
+        return res.json(result);
+      });
+    }
+  });
 
 
-var app = express();
-app.use(session({
-	secret: 'secret',
-	resave: true,
-	saveUninitialized: true
-}));
-app.use(bodyParser.urlencoded({extended : true}));
-app.use(bodyParser.json());
+app.post("/api/new", function(req, res) {
+  // Take the request...
+  var user = req.body;
 
-app.get('/', function(request, response) {
-	response.sendFile(path.join(__dirname + '/login.html'));
+  // Create a routeName
+
+  // Using a RegEx Pattern to remove spaces from user.name
+  // You can read more about RegEx Patterns later https://www.regexbuddy.com/regex.html
+  var User = user.name.replace(/\s+/g, "").toLowerCase();
+
+  // Then add the user to the database using sequelize
+  User.create({
+    
+    email: user.email,
+    name: user.name,
+    age: user.age,
+    photo: photo,
+    userName: userName,
+    password: password,
+    
+  });
+
+  res.status(204).end();
 });
-
-app.post('/auth', function(request, response) {
-	var username = request.body.username;
-	var password = request.body.password;
-	if (username && password) {
-		connection.query('SELECT * FROM accounts WHERE username = ? AND password = ?', [username, password], function(error, results, fields) {
-			if (results.length > 0) {
-				request.session.loggedin = true;
-				request.session.username = username;
-				response.redirect('/home');
-			} else {
-				response.send('Incorrect Username and/or Password!');
-			}			
-			response.end();
-		});
-	} else {
-		response.send('Please enter Username and Password!');
-		response.end();
-	}
-});
-
-app.get('/home', function(request, response) {
-	if (request.session.loggedin) {
-		response.send('Welcome back, ' + request.session.username + '!');
-	} else {
-		response.send('Please login to view this page!');
-	}
-	response.end();
-});
-
-app.listen(8080);
+}

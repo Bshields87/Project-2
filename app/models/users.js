@@ -1,13 +1,19 @@
-module.exports = function(sequelize, DataTypes) {
+var Sequelize = require("sequelize");
+// sequelize (lowercase) references our connection to the DB.
+var sequelize = require("../config/connection");
+
+
+
+
     var User = sequelize.define("User", {
-      email: DataTypes.STRING,
-      name: DataTypes.STRING,
-      age: DataTypes.INTEGER,
-      photo: DataTypes.STRING,
-      userName: DataTypes.STRING,
-      password: DataTypes.STRING,
-      bio: DataTypes.STRING,
-      datingPreference: DataTypes.STRING
+      email: Sequelize.STRING,
+      name: Sequelize.STRING,
+      age: Sequelize.INTEGER,
+      photo: Sequelize.STRING,
+      userName: Sequelize.STRING,
+      password: Sequelize.STRING,
+      bio: Sequelize.STRING,
+      datingPreference: Sequelize.STRING
     });
-    return User;
-  };
+    User.sync();
+    module.exports = User;
