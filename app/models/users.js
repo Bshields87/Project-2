@@ -1,6 +1,6 @@
 var Sequelize = require("sequelize");
 // sequelize (lowercase) references our connection to the DB.
-var sequelize = require("../connection");
+var sequelize = require("../config/connection");
 
 
 
@@ -14,11 +14,11 @@ var sequelize = require("../connection");
       password: Sequelize.STRING,
       bio: Sequelize.STRING,
       datingPreference: Sequelize.STRING,
-      createdAt: {
-        field: 'beginTime',
-        defaultValue: sequelize.literal('NOW()')
-      },
-      timestamps: true
+      createdAt: Sequelize.DATE,
+      updatedAt: Sequelize.DATE,
+     
     });
+
+    console.log("table created")
     User.sync();
     module.exports = User;

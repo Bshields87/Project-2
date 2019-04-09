@@ -1,3 +1,8 @@
+// *********************************************************************************
+// Server.js - This file is the initial starting point for the Node/Express server.
+// *********************************************************************************
+
+// Dependencies
 // =============================================================
 var express = require("express");
 
@@ -6,6 +11,7 @@ var express = require("express");
 var app = express();
 var PORT = process.env.PORT || 8080;
 
+// Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
@@ -14,10 +20,7 @@ app.use(express.static("app/public"));
 
 // Routes
 // =============================================================
-//require("./app/routes/api-routes")(app);
-
-// Here we introduce HTML routing to serve different HTML files
-require("./app/routes/html-route")(app);
+require("./app/routes/api-routes.js")(app);
 
 // Starts the server to begin listening
 // =============================================================
