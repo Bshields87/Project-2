@@ -14,8 +14,12 @@ module.exports = function(app) {
   
 
   // route loads the login in page
-  app.get("/registration", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/registration.html"));
+  app.get("/register", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/register.html"));
+  });
+
+  app.get("/quiz", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/makeQuiz.html"));
   });
   
   // route loads the dashboard page after login

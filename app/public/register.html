@@ -23,17 +23,17 @@
     <!--The login page will show this code and hide the login code IF the user does not have an account
     . This page will show an input form with basic user info, in addition to their personalized quiz
 that will show up on the dashboard-->
-
-<form> 
+<div class="survey">
+<form action="register" method="POST" class='register'> 
     <div class="row">
         <form class="col s12">
             <div class="row">
                 <div class="input-field col s6">
-                    <input id="username" type="text" class="validate">
+                    <input name="userName" id="username" type="text" class="validate">
                     <label for="username">Username</label>
                 </div>
                 <div class="input-field col s6">
-                    <input id="password" type="text" class="validate">
+                    <input name="password" id="password" type="text" class="validate">
                     <label for="password">Password</label>
                 </div>
             </div>
@@ -41,11 +41,11 @@ that will show up on the dashboard-->
             <form class="col s12">
                 <div class="row">
                     <div class="input-field col s6">
-                        <input id="username" type="text" class="validate">
-                        <label for="username">Name</label>
+                        <input name="fullname" id="fullname" type="text" class="validate">
+                        <label for="fullname">Name</label>
                     </div>
                     <div class="input-field col s6">
-                        <input id="email" type="email" class="validate">
+                        <input name="email" id="email" type="email" class="validate">
                         <label for="email">Email</label>
                     </div>
                 </div>
@@ -57,7 +57,7 @@ that will show up on the dashboard-->
                                 <div class="file-field input-field">
                                     <div class="btn">
                                         <span>Upload Photo</span>
-                                        <input type="file">
+                                        <input name="photo" type="file">
                                     </div>
                                     <div class="file-path-wrapper">
                                         <input class="file-path validate" type="text">
@@ -66,12 +66,12 @@ that will show up on the dashboard-->
                         </div>
                         <form class="col s6">
                             <div class="input-field col s3">
-                                <input id="age" type="number" name="age" min="1" max="5 class=" validate>
+                                <input id="age" type="text" name="age" class= "validate">
                                 <!-- <input id="age" type="text" class="validate"> -->
                                 <label for="age">Age</label>
                             </div>
                             <div class="input-field col s3">
-                                <input id="preference" type="text" class="validate">
+                                <input name="datingPreference" id="preference" type="text" class="validate">
                                 <label for="preference">Preference</label>
                             </div>
                         </div>
@@ -84,11 +84,12 @@ that will show up on the dashboard-->
         <div class="col s12">
             <div class="row">
                 <div class="input-field col s12">
-                    <textarea id="textarea1" class="materialize-textarea"></textarea>
+                    <textarea name="bio" id="textarea1" class="materialize-textarea"></textarea>
                     <label for="textarea1">Write a brief bio</label>
                 </div>
             </div>
-           <a href="makeQuiz.html"> <button type="button" class="btn btn-primary btn-lg btn-block">Submit</button></a>
+            <input type="submit">
+           <!-- <a href="makeQuiz.html"> <button type="button" class="btn btn-primary btn-lg btn-block">Submit</button></a> -->
         </div>
     </div>
     </div>
@@ -97,52 +98,84 @@ that will show up on the dashboard-->
     </div>
 
 </form>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+<script>
+		
+    //  		$(".register").on("submit", function(event) {
+    // //     // Make sure to preventDefault on a submit event.
+    //      event.preventDefault();
+    
+    //     var userLogin = {
+    //       username: $("#username").val().trim(),
+    //        password: $("#password").val().trim(),
+    //        fullname: $("#fullname").val().trim()
+    //   };
+    //   console.log(userLogin)
+    // //     // Send the POST request.
+    //  		$.post("/register", userLogin)
+    //  		.then(function(data) {
+    //     console.log("new user created")     -->
+    // 				console.log("welcome " + userLogin.username);
+    // 				console.log("password " + userLogin.password)
+    //         // Reload the page to get the updated list
+    // 				//location.reload();
+    
+    //       }
+    // 		);
+    // 		$("#username").val("");
+    // 				$("#password").val("")
+//              })       
+// });
+            </script>
 </body>
 
 
-<script>
 
-    document.addEventListener('DOMContentLoaded', function () {
-        var elems = document.querySelectorAll('select');
-        var instances = M.FormSelect.init(elems, options);
-    });
+<!-- <script>
 
-    // Or with jQuery
+//     document.addEventListener('DOMContentLoaded', function () {
+//         var elems = document.querySelectorAll('select');
+//         var instances = M.FormSelect.init(elems, options);
+//     });
 
-    $(document).ready(function () {
-        $('select').formSelect();
-    });
+//     // Or with jQuery
+
+//     $(document).ready(function () {
+//         $('select').formSelect();
+//     });
 
 
-    document.addEventListener('DOMContentLoaded', function () {
-        var elems = document.querySelectorAll('select');
-        var instances = M.FormSelect.init(elems, options);
-    });
+//     document.addEventListener('DOMContentLoaded', function () {
+//         var elems = document.querySelectorAll('select');
+//         var instances = M.FormSelect.init(elems, options);
+//     });
 
-    function readImage() {
+//     function readImage() {
 
-        $("#selfie").hide();
-        $("#imgDisplay").show();
-        $("#submitImg").show();
+//         $("#selfie").hide();
+//         $("#imgDisplay").show();
+//         $("#submitImg").show();
 
-        let filesSelected = document.getElementById("selfie").files;
-        if (filesSelected.length > 0) {
-            let fileToLoad = filesSelected[0];
+//         let filesSelected = document.getElementById("selfie").files;
+//         if (filesSelected.length > 0) {
+//             let fileToLoad = filesSelected[0];
 
-            let fileReader = new FileReader();
+//             let fileReader = new FileReader();
 
-            fileReader.onload = function (fileLoadedEvent) {
-                srcData = fileLoadedEvent.target.result; // <--- data: base64
+//             fileReader.onload = function (fileLoadedEvent) {
+//                 srcData = fileLoadedEvent.target.result; // <--- data: base64
 
-                let newImage = document.createElement('img');
-                newImage.src = srcData;
+//                 let newImage = document.createElement('img');
+//                 newImage.src = srcData;
 
-                document.getElementById("imgDisplay").innerHTML = newImage.outerHTML;
-            }
-            fileReader.readAsDataURL(fileToLoad);
-        }
-    }
+//                 document.getElementById("imgDisplay").innerHTML = newImage.outerHTML;
+//             }
+//             fileReader.readAsDataURL(fileToLoad);
+//         }
+//     }
 
-</script>
+// </script>-->
+
 
 </html>
