@@ -1,4 +1,4 @@
-var User = require("../models/users");
+var User = require("../config/models/users");
 var Survey = require("../models/surveys");
 
 module.exports= function(app){

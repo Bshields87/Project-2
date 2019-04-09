@@ -1,6 +1,6 @@
 var Sequelize = require("sequelize");
 // sequelize (lowercase) references our connection to the DB.
-var sequelize = require("../config/connection");
+var sequelize = require("../connection");
 var User = require("./users")
 
  var Survey = sequelize.define("Survey", {
