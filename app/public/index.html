@@ -11,10 +11,7 @@
 		<div class="login-form">
 			<h1>Create New Account</h1>
 			<form action="auth" method="POST">
-				<input  id="email" type="text" name="email" placeholder="Email" required>
-				<input id="name" type="text" name="name" placeholder="Name" required>
-				<input id="age" type="text" name="age" placeholder="Age" required>
-				<input id="photo" type="text" name="photo" placeholder="Photo" required>
+			
 				<input id="username" type="text" name="username" placeholder="Username" required>
 				<input id="password" type="password" name="password" placeholder="Password" required>
 				<input type="submit">
@@ -27,25 +24,24 @@
     // Make sure to preventDefault on a submit event.
     event.preventDefault();
 
-    var newUser = {
-			email: $("#email").val().trim(),
-			name: $("#name").val().trim(),
-			age: $("#age").val().trim(),
-			photo: $("#photo").val().trim(),
+    var userLogin = {
       username: $("#username").val().trim(),
       password: $("#password").val().trim()
     };
- console.log(newUser)
+ console.log(userLogin)
     // Send the POST request.
-		$.post("/api/new", newUser)
+		$.post("/api/new", userLogin)
 		.then(function(data) {
 			alert("Adding character...");
-				console.log("welcome" + newUser.name);
+				console.log("welcome" + userLogin.name);
 				console.log(data)
         // Reload the page to get the updated list
-        //location.reload();
+				//location.reload();
+
       }
-    );
+		);
+		$("#username").val("");
+				$("#password").val("")
   });
 		</script>
 	</body>

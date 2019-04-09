@@ -11,7 +11,7 @@ module.exports= function(app){
       // (Note how we're using the ORM here to run our searches)
       User.findOne({
         where: {
-          routeName: req.params.user
+          routeName: req.params.userName
         }
       }).then(function(result) {
         return res.json(result);
