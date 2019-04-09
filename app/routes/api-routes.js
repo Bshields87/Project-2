@@ -1,51 +1,72 @@
 var User = require("../models/users");
-var Survey = require("../models/surveys");
-
-
+//var Survey = require("../models/surveys");
+var Users = require("../seeders/20190409020839-my-seed");
+const router = require('express').Router()
 
 module.exports= function(app){
 
-  app.get("/api/:user", function(req, res) {
-    if (req.params.user) {
-      // Display the JSON for ONLY that character.
-      // (Note how we're using the ORM here to run our searches)
-      User.findOne({
-        where: {
-          routeName: req.params.userName
-        }
-      }).then(function(result) {
-        return res.json(result);
-      });
-    } else {
-      User.findAll().then(function(result) {
-        return res.json(result);
-      });
-    }
-  });
+  app.get('/users', function (req, res) {
+   
+    User.findAll({}).then(function(result) {
+      return res.json(result);
+    });
+    // console.log(res)
+    // res.json(Users)
+})
+app.post('/auth', async function (req, res, err) {           
+  var whereUser = {
+      userName: req.body.username,
+      password: req.body.password
+      
+  }      
+  console.log("this is me", whereUser)
 
+ if (!req.body.username || !req.body.password) {
+     res.send('login failed');
+  } else {        
+      // The following code return an instance of the user if it was found.
+     const user = await User.findOne({ where: whereUser })
 
-app.post("/api/new", function(req, res) {
-  // Take the request...
-  var user = req.body;
-
-  // Create a routeName
-
-  // Using a RegEx Pattern to remove spaces from user.name
-  // You can read more about RegEx Patterns later https://www.regexbuddy.com/regex.html
-  var User = user.name.replace(/\s+/g, "").toLowerCase();
-
-  // Then add the user to the database using sequelize
-  User.create({
-    
-    email: user.email,
-    name: user.name,
-    age: user.age,
-    photo: photo,
-    userName: userName,
-    password: password,
-    
-  });
-
-  res.status(204).end();
+     // If the user was not found that means the credentials were wrong.
+     if (user) {
+         console.log("auth ok")
+         return  res.redirect("/dashboard");
+       
+     } else {
+         console.log("ERROR")
+         res.send(err)
+     }
+ } 
 });
+
+
+
+
+
+// app.post("/newuser", function(req, res) {
+//   // Take the request...
+//   var user = req.body;
+
+//   // Create a routeName
+
+//   // Using a RegEx Pattern to remove spaces from character.name
+//   // You can read more about RegEx Patterns later https://www.regexbuddy.com/regex.html
+//   //var routeName = user.name.replace(/\s+/g, "").toLowerCase();
+
+//   // Then add the character to the database using sequelize
+//   User.create({
+//     //routeName: routeName,
+//     email: user.email,
+//     fullname: user.fullname,
+//     age: user.name,
+//     photo: user.photo,
+//     userName: user.userName,
+//     password: user.password,
+//     bio: user.bio,
+//     datingPreference: user.datingPreference,
+
+//   });
+
+//   res.status(204).end();
+// });
 }

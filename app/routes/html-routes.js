@@ -9,22 +9,23 @@ module.exports = function(app) {
 
   // index route loads view.html
   app.get("/", function(req, res) {
-    res.sendFile(path.join(__dirname, "app/public/index.html"));
+    res.sendFile(path.join(__dirname, "../public/login.html"));
   });
+  
 
   // route loads the login in page
-  app.get("/login", function(req, res) {
-    res.sendFile(path.join(__dirname, "app/public/register.html"));
+  app.get("/registration", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/registration.html"));
   });
   
   // route loads the dashboard page after login
-  app.get("/home", function(req, res) {
-    res.sendFile(path.join(__dirname, "app/public/dashboard.html"));
+  app.get("/dashboard", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/dashboard.html"));
   });
 
   //route loads user profiles
   app.get("/search", function(req, res) {
-    res.sendFile(path.join(__dirname, "app/public/search.html"));
+    res.sendFile(path.join(__dirname, "../public/search.html"));
   });
 
 };
