@@ -1,11 +1,12 @@
 'use strict';
 
+
 module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.bulkInsert('Users', [{
       
       email: 'demo@demo.com',
-      name: 'John Doe',
+      fullname: 'John Doe',
       age: 32,
       userName: "johnnyboy69",
       password: "GettinLaid88",
@@ -13,7 +14,7 @@ module.exports = {
     },
     {
       email: 'demo2@demo.com',
-      name: 'Jane Doe',
+      fullname: 'Jane Doe',
       age: 26,
       userName: "janeygirl69",
       password: "GettinLaid88"

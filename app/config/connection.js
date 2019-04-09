@@ -15,7 +15,8 @@ var sequelize = new Sequelize("project2", "root", "Gabrielle2!", {
     min: 0,
     idle: 10000
   }
+  
 });
-
+console.log("connected to db")
 // Exports the connection for other files to use
 module.exports = sequelize;

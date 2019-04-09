@@ -19,6 +19,6 @@ var sequelize = require("../config/connection");
      
     });
 
-    console.log("table created")
+  
     User.sync();
     module.exports = User;
