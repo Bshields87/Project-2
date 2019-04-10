@@ -15,18 +15,13 @@ var PORT = process.env.PORT || 3000;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-
 // Static directory to be served
 app.use(express.static("app/public"));
 
 // Routes
 // =============================================================
 require("./app/routes/api-routes.js")(app);
-<<<<<<< HEAD
-require("./app/routes/html-route")(app);
-=======
 require("./app/routes/html-routes.js")(app);
->>>>>>> 5622bd29fb3cae451968e9eb16e9c7270e29b5dc
 
 // Starts the server to begin listening
 // =============================================================
