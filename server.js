@@ -15,12 +15,14 @@ var PORT = process.env.PORT || 8080;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+
 // Static directory to be served
 app.use(express.static("app/public"));
 
 // Routes
 // =============================================================
 require("./app/routes/api-routes.js")(app);
+require("./app/routes/html-route")(app);
 
 // Starts the server to begin listening
 // =============================================================

@@ -14,9 +14,11 @@ module.exports = function(app) {
 
   // add route loads the add.html page,
   // where users can enter new characters to the db
-  app.get("/home", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/dashboard.html"));
+  app.get("/dashboard", function(req, res) {
+ 
+    res.sendFile(path.join(__dirname, "../public/dashboard/dashboard.html"));
   });
+ 
 
   // all route loads the all.html page,
   // where all characters in the db are displayed
