@@ -8,7 +8,7 @@ module.exports = {
       email: 'demo@demo.com',
       fullname: 'John Doe',
       age: 32,
-      photo: "https://media.thetab.com/blogs.dir/279/files/2018/06/person-people-human-39.jpg",
+      photo: "https://i.pinimg.com/originals/b6/40/64/b64064fe8fc20db8d5035178f258c32a.jpg",
       userName: "johnnyboy69",
       password: "GettinLaid88",
       bio: "Hot guy on the beach",
@@ -27,6 +27,28 @@ module.exports = {
       datingPreference: "Male",
       location: "Oakland, California"
     },
+    {
+      email: 'demo@demo.com',
+      fullname: 'Alex',
+      age: 28,
+      photo: "https://images.unsplash.com/photo-1528629297340-d1d466945dc5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80",
+      userName: "alexboy69",
+      password: "GettinLaid88",
+      bio: "Hot guy on a bike",
+      datingPreference: "Male",
+      location: "San Francisco, California"
+    },
+    {
+      email: 'demo2@demo.com',
+      fullname: 'Alexa',
+      age: 32,
+      photo: "https://www.playarida.com/wp-content/uploads/2013/07/tumblr_m7evqvqr7x1qg8ddao1_500.jpg",
+      userName: "alexagirl69",
+      password: "GettinLaid88",
+      bio: "Hot girl on a bike",
+      datingPreference: "Female",
+      location: "San Francisco, California"
+    }
   
   ], {});
     /*

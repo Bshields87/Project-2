@@ -18,18 +18,14 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, "../public/register.html"));
   });
 
-  app.get("/quiz", function(req, res) {
+  app.get("/quiz/:userid", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/makeQuiz.html"));
   });
   
   // route loads the dashboard page after login
-  app.get("/dashboard", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/dashboardTest.html"));
+  app.get("/dashboard/:userid", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/dashboard.html"));
   });
 
-  //route loads user profiles
-  app.get("/search", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/search.html"));
-  });
-
+ 
 };

@@ -1,14 +1,172 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-</head>
-<body>
-    <h1>Welcome back!</h1>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
+</head>
+
+<body>
+    <!--NavBar-->
+    <nav>
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo">Brand</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="login.html">Logout</a></li>
+                <li><a href="google.com">Messages</a></li>
+                <li><a href="collapsible.html">Your Quiz</a></li>
+            </ul>
+        </div>
+    </nav>
+    <!--Carousel Start-->
+    <div class="carousel carousel-slider center">
+        <div class="carousel-fixed-item center">
+        </div>
+
+        <!--Panel 1-->
+        <div class="carousel-item red white-text" href="#one!">
+
+            <h2 id="user1name"></h2>
+            <h3 id="user1age" class="white-text"></h3>
+            <p id="user1bio" class="white-text"></p>
+            <img class="imageResize" id="user1photo">
+        
+        </div>
+
+        <!--Panel 2-->
+        
+        <div class="carousel-item amber white-text" href="#two!">
+    <h2 id="user2name"></h2>
+            <h3 id="user2age" class="white-text"></h3>
+            <p id="user2bio" class="white-text"></p>
+            <img id="user2photo">
+            </div>
+        
+  
+        <!--Panel 3-->
+        <div class="carousel-item green white-text" href="#three!">
+            <h2 id="user3name"></h2>
+            <h3 id="user3age" class="white-text"></h3>
+            <p id="user3bio" class="white-text"></p>
+            <img id="user3photo">
+        </div>
+
+        <!--Panel 4-->
+        <div class="carousel-item blue white-text" href="#four!">
+            <h2 id="user4name"></h2>
+            <h3 id="user4age" class="white-text"></h3>
+            <p id="user4bio" class="white-text"></p>
+            <img id="user4photo">
+        </div>
+    </div>
+    <!--Carousel End-->
+
+    <!--Footer-->
+    <div>
+        <footer class="page-footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col l6 s12">
+                        <h5 class="white-text">Footer Content</h5>
+                        <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer
+                            content.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                <div class="container">
+                    © 2019 Copyright | Made in Berkeley, CA
+                </div>
+            </div>
+        </footer>
+    </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+        M.AutoInit();
+        document.addEventListener('DOMContentLoaded', function () {
+            var elems = document.querySelector('.carousel');
+            var instances = M.Carousel.init(elems);
+            $.ajax({
+                url: "/users",
+                method: "GET",
+            }).then(
+                function (result) {
+                    let users = (result)
+                    
+                    console.log(users)
+                    
+                    //user 1
+                    $("#user1photo").attr("src", users[0].User.photo)
+                    $("#user1name").html(users[0].User.fullname)
+                    $("#user1age").html(users[0].User.age)
+                    $("#user1bio").html(users[0].User.bio)
+                    //user 2
+                    $("#user2photo").attr("src", users[1].User.photo)
+                    $("#user2name").html(users[1].User.fullname)
+                    $("#user2age").html(users[1].User.age)
+                    $("#user2bio").html(users[1].User.bio)
+                    //user 3
+                    $("#user3photo").attr("src", users[2].User.photo)
+                    $("#user3name").html(users[2].User.fullname)
+                    $("#user3age").html(users[2].User.age)
+                    $("#user3bio").html(users[2].User.bio)
+                    //user 4
+                    $("#user4photo").attr("src", users[3].User.photo)
+                    $("#user4name").html(users[3].User.fullname)
+                    $("#user4age").html(users[3].User.age)
+                    $("#user4bio").html(users[3].User.bio)
+
+                });
+            $('.imageResize').each(function(){
+   
+        var maxWidth = $(this).width(); // Max width for the image
+        var maxHeight = $(this).height();   // Max height for the image
+        $(this).css("width", "auto").css("height", "auto"); // Remove existing CSS
+        $(this).removeAttr("width").removeAttr("height"); // Remove HTML attributes
+        var width = $(this).width();    // Current image width
+        var height = $(this).height();  // Current image height
+
+        if(width > height) {
+            // Check if the current width is larger than the max
+            if(width > maxWidth){
+                var ratio = maxWidth / width;   // get ratio for scaling image
+                $(this).css("width", maxWidth); // Set new width
+                $(this).css("height", height * ratio);  // Scale height based on ratio
+                height = height * ratio;    // Reset height to match scaled image
+            }
+        } else {
+            // Check if current height is larger than max
+            if(height > maxHeight){
+                var ratio = maxHeight / height; // get ratio for scaling image
+                $(this).css("height", maxHeight);   // Set new height
+                $(this).css("width", width * ratio);    // Scale width based on ratio
+                width = width * ratio;  // Reset width to match scaled image
+            }
+        }
+    });
+});
+            
     
+       
+   
+        var instance = M.Carousel.init({
+            fullWidth: true,
+            indicators: true
+        });
+       // instance.next();
+
+    </script>
 </body>
+
 </html>
