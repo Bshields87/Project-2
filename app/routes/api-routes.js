@@ -102,8 +102,3 @@ app.post("/quiz/:userid", async function (req, res) {
 // })
 
 }
-
-
-
-
-

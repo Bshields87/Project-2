@@ -30,3 +30,7 @@ module.exports = function (sequelize, DataTypes) {
 
 
 
+<<<<<<< HEAD
+=======
+    module.exports = Survey;
+>>>>>>> 3176fb08ae1b8511c37625e10d75558235623103

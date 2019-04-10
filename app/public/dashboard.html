@@ -28,6 +28,10 @@
     <!--Carousel Start-->
     <div class="carousel carousel-slider center">
         <div class="carousel-fixed-item center">
+<<<<<<< HEAD
+=======
+            
+>>>>>>> 3176fb08ae1b8511c37625e10d75558235623103
         </div>
 
         <!--Panel 1-->
@@ -36,6 +40,7 @@
             <h2 id="user1name"></h2>
             <h3 id="user1age" class="white-text"></h3>
             <p id="user1bio" class="white-text"></p>
+<<<<<<< HEAD
             <img class="imageResize" id="user1photo">
         
         </div>
@@ -50,12 +55,36 @@
             </div>
         
   
+=======
+            <img id="user1photo">
+
+
+            
+            <button class="mdc-button">
+                   <span class="mdc-button__label">Send Message</span>
+            </button>
+
+        </div>
+
+        <!--Panel 2-->
+        <div class="carousel-item amber white-text" href="#two!">
+            <h2 id="user2name"></h2>
+            <h3 id="user2age" class="white-text"></h3>
+            <p id="user2bio" class="white-text"></p>
+            <img id="user2photo">
+            <button class="mdc-button">
+                    <span class="mdc-button__label">Send Message</span>
+             </button>
+        </div>
+
+>>>>>>> 3176fb08ae1b8511c37625e10d75558235623103
         <!--Panel 3-->
         <div class="carousel-item green white-text" href="#three!">
             <h2 id="user3name"></h2>
             <h3 id="user3age" class="white-text"></h3>
             <p id="user3bio" class="white-text"></p>
             <img id="user3photo">
+<<<<<<< HEAD
         </div>
 
         <!--Panel 4-->
@@ -68,6 +97,26 @@
     </div>
     <!--Carousel End-->
 
+=======
+            <button class="mdc-button">
+                    <span class="mdc-button__label">Send Message</span>
+             </button>
+        </div>
+
+        <!--Panel 4-->
+        <div class="carousel-item blue white-text" href="#four!">
+            <h2 id="user4name"></h2>
+            <h3 id="user4age" class="white-text"></h3>
+            <p id="user4bio" class="white-text"></p>
+            <img id="user4photo">
+            <button class="mdc-button">
+                    <span class="mdc-button__label">Send Message</span>
+             </button>
+        </div>
+    </div>
+    <!--Carousel End-->
+
+>>>>>>> 3176fb08ae1b8511c37625e10d75558235623103
     <!--Footer-->
     <div>
         <footer class="page-footer">
@@ -103,6 +152,7 @@
             }).then(
                 function (result) {
                     let users = (result)
+<<<<<<< HEAD
                     
                     console.log(users)
                     
@@ -160,10 +210,43 @@
     
        
    
+=======
+                    let userOptions = Object.values(users)
+                    console.log(users)
+
+                    //user 1
+                    $("#user1photo").attr("src", userOptions[0].photo)
+                    $("#user1name").html(userOptions[0].fullname)
+                    $("#user1age").html(userOptions[0].age)
+                    $("#user1bio").html(userOptions[0].bio)
+                    //user 2
+                    $("#user2photo").attr("src", userOptions[1].photo)
+                    $("#user2name").html(userOptions[1].fullname)
+                    $("#user2age").html(userOptions[1].age)
+                    $("#user2bio").html(userOptions[1].bio)
+                    //user 3
+                    $("#user3photo").attr("src", userOptions[2].photo)
+                    $("#user3name").html(userOptions[2].fullname)
+                    $("#user3age").html(userOptions[2].age)
+                    $("#user3bio").html(userOptions[2].bio)
+
+                });
+        })
+
+>>>>>>> 3176fb08ae1b8511c37625e10d75558235623103
         var instance = M.Carousel.init({
             fullWidth: true,
             indicators: true
         });
+<<<<<<< HEAD
+=======
+
+        $(".mdc-button").on("click",function(){
+            // functionality for modal goes here
+            console.log("i hit the button")
+            window.location.replace("../profile/profile.html")
+        })
+>>>>>>> 3176fb08ae1b8511c37625e10d75558235623103
        // instance.next();
 
     </script>
