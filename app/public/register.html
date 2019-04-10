@@ -29,24 +29,36 @@ that will show up on the dashboard-->
         <form class="col s12">
             <div class="row">
                 <div class="input-field col s6">
-                    <input name="userName" id="username" type="text" class="validate">
-                    <label for="username">Username</label>
+                    <input name="userName" id="username" type="text" class="validate" required>
+                    <label for="username">Username
+                            <span class="form__required">required</span>
+                    </label>
                 </div>
                 <div class="input-field col s6">
-                    <input name="password" id="password" type="text" class="validate">
-                    <label for="password">Password</label>
+                    <input name="password" id="password" type="password" class="validate" required>
+                    <label for="password">Password
+                            <span class="form__required">required</span>
+                    </label>
                 </div>
             </div>
 
             <form class="col s12">
                 <div class="row">
-                    <div class="input-field col s6">
-                        <input name="fullname" id="fullname" type="text" class="validate">
-                        <label for="fullname">Name</label>
+                    <div class="input-field col s4">
+                        <input name="fullname" id="fullname" type="text" class="validate" required>
+                        <label for="fullname">Fullname 
+                                <span class="form__required">required</span>
+                        </label>
                     </div>
-                    <div class="input-field col s6">
-                        <input name="email" id="email" type="email" class="validate">
-                        <label for="email">Email</label>
+                    <div class="input-field col s4">
+                        <input name="email" id="email" type="email" class="validate" required>
+                        <label for="email">Email
+                                <span class="form__required">required</span>
+                        </label>
+                    </div>
+                    <div class="input-field col s4">
+                        <input name="location" id="location" type="text" class="validate">
+                        <label for="location">Where Do You Live?</label>
                     </div>
                 </div>
 
@@ -54,15 +66,8 @@ that will show up on the dashboard-->
                     <div class="row">
                         <div class="input-field col s6">
                             <form action="#">
-                                <div class="file-field input-field">
-                                    <div class="btn">
-                                        <span>Upload Photo</span>
-                                        <input name="photo" type="file">
-                                    </div>
-                                    <div class="file-path-wrapper">
-                                        <input class="file-path validate" type="text">
-                                    </div>
-                                </div>
+                                <input name="photo" id="photo" type="text" class="validate">
+                                <label for="photo">Place link to photo here</label>  
                         </div>
                         <form class="col s6">
                             <div class="input-field col s3">
@@ -88,8 +93,8 @@ that will show up on the dashboard-->
                     <label for="textarea1">Write a brief bio</label>
                 </div>
             </div>
-            <input type="submit">
-           <!-- <a href="makeQuiz.html"> <button type="button" class="btn btn-primary btn-lg btn-block">Submit</button></a> -->
+        
+          <input type="submit" class="btn btn-primary btn-lg btn-block"></button></a>
         </div>
     </div>
     </div>

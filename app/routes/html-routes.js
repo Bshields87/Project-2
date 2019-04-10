@@ -24,7 +24,7 @@ module.exports = function(app) {
   
   // route loads the dashboard page after login
   app.get("/dashboard", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/dashboard.html"));
+    res.sendFile(path.join(__dirname, "../public/dashboardTest.html"));
   });
 
   //route loads user profiles

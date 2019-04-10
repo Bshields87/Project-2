@@ -1,5 +1,5 @@
 var User = require("../models/users");
-//var Survey = require("../models/surveys");
+var Survey = require("../models/surveys");
 
 const router = require('express').Router()
 
@@ -58,12 +58,13 @@ app.post("/register", async function (req, res) {
       //routeName: routeName,
       email: user.email,
       fullname: user.fullname,
-      age: parseInt(user.name),
+      age: parseInt(user.age),
       photo: user.photo,
       userName: user.userName,
       password: user.password,
       bio: user.bio,
       datingPreference: user.datingPreference,
+      location: user.location
 
     }).then(function (User) {
       console.log(User)
@@ -72,6 +73,25 @@ app.post("/register", async function (req, res) {
     //console.log(user.email)
     res.status(204).end();
   });
+//end route
+
+app.post("/quiz", async function (req, res) {
+  var survey= req.body
+  console.log(req.body)
+
+  await Survey.create({
+    question1: survey.question1,
+    question2: survey.question2,
+    question3: survey.question3,
+    question4: survey.question4,
+    question5: survey.question5,
+  }).then(function(Survey){
+    console.log(Survey)
+    return res.redirect("/dashboard")
+  });
+  res.status(204).end();
+
+})
 
 
 

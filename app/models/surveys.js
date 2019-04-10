@@ -10,9 +10,22 @@ var User = require("./users")
       question3: Sequelize.TEXT,
       question4: Sequelize.TEXT,
       question5: Sequelize.TEXT,
+      createdAt: { type: Sequelize.DATE, defaultValue: Sequelize.NOW },
+      updatedAt: { type: Sequelize.DATE, defaultValue: Sequelize.NOW },
+   
     });
-
-    Survey.hasOne(User)
+    // Survey.associate = function(models) {
+    //   // We're saying that a Survey should belong to an Author
+    //   // A Survey can't be created without an Author due to the foreign key constraint
+    //   Survey.belongsTo(models.User, {
+    //     foreignKey: {
+    //       allowNull: false
+    //     }
+    //   });
+    // };
+  
+    //return Survey;
+    Survey.belongsTo(User)
     Survey.sync();
   
 
