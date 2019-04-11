@@ -44,54 +44,69 @@ font-family: 'Staatliches', cursive;">
     <!--Carousel Start-->
     <div class="carousel carousel-slider center" id="carousel">
         <div class="carousel-fixed-item center">
-            
         </div>
 
         <!--Panel 1-->
-        <div class="carousel-item grey white-text" href="#one!">
 
+        <div class="carousel-item grey white-text" href="#one!">
+            <button class="mdc-button" id="userid1">
+                <span class="mdc-button__label">Send Message</span>
+            </button>
             <h2 id="user1name"></h2>
             <h3 id="user1age" class="white-text"></h3>
             <p id="user1bio" class="white-text"></p>
-            <img id="user1photo">
-            
-            <button class="mdc-button">
-                   <span class="mdc-button__label">Send Message</span>
-            </button>
+
+
+            <img class="imageResize" id="user1photo">
+
 
         </div>
 
         <!--Panel 2-->
+
         <div class="carousel-item grey white-text" href="#two!">
+
+        
+            <button class="mdc-button" id="userid2">
+                <span class="mdc-button__label">Send Message</span>
+            </button>
             <h2 id="user2name"></h2>
             <h3 id="user2age" class="white-text"></h3>
             <p id="user2bio" class="white-text"></p>
-            <img id="user2photo">
-            <button class="mdc-button">
-                    <span class="mdc-button__label">Send Message</span>
-             </button>
+            <img class="imageResize" id="user2photo">
+
         </div>
 
         <!--Panel 3-->
+
         <div class="carousel-item grey white-text" href="#three!">
+
+    
+            <button class="mdc-button" id="userid3">
+                <span class="mdc-button__label">Send Message</span>
+            </button>
+
             <h2 id="user3name"></h2>
             <h3 id="user3age" class="white-text"></h3>
             <p id="user3bio" class="white-text"></p>
-            <img id="user3photo">
-            <button class="mdc-button">
-                    <span class="mdc-button__label">Send Message</span>
-             </button>
+            <img class="imageResize" id="user3photo">
+
         </div>
 
         <!--Panel 4-->
+
         <div class="carousel-item grey white-text" href="#four!">
+
+      
+            <button class="mdc-button" id="userid4">
+                <span class="mdc-button__label">Send Message</span>
+            </button>
+
             <h2 id="user4name"></h2>
             <h3 id="user4age" class="white-text"></h3>
             <p id="user4bio" class="white-text"></p>
-            <img id="user4photo">
-            <button class="mdc-button">
-                    <span class="mdc-button__label">Send Message</span>
-             </button>
+            <img class="imageResize" id="user4photo">
+
         </div>
     </div>
     <!--Carousel End-->
@@ -129,45 +144,128 @@ font-family: 'Staatliches', cursive;">
         document.addEventListener('DOMContentLoaded', function () {
             var elems = document.querySelector('.carousel');
             var instances = M.Carousel.init(elems);
-            $.ajax({
+         $.ajax({
                 url: "/users",
-                method: "GET",
+                method: "GET"
             }).then(
                 function (result) {
                     let users = (result)
-                    let userOptions = Object.values(users)
+
                     console.log(users)
 
                     //user 1
-                    $("#user1photo").attr("src", userOptions[0].photo)
-                    $("#user1name").html(userOptions[0].fullname)
-                    $("#user1age").html(userOptions[0].age)
-                    $("#user1bio").html(userOptions[0].bio)
+                    $("#user1photo").attr("src", users[0].User.photo)
+                    $("#user1name").html(users[0].User.fullname)
+                    $("#user1age").html(users[0].User.age)
+                    $("#user1bio").html(users[0].User.bio)
+                    $("#userid1").attr("name", users[0].UserId)
                     //user 2
-                    $("#user2photo").attr("src", userOptions[1].photo)
-                    $("#user2name").html(userOptions[1].fullname)
-                    $("#user2age").html(userOptions[1].age)
-                    $("#user2bio").html(userOptions[1].bio)
+                    $("#user2photo").attr("src", users[1].User.photo)
+                    $("#user2name").html(users[1].User.fullname)
+                    $("#user2age").html(users[1].User.age)
+                    $("#user2bio").html(users[1].User.bio)
+                    $("#userid2").attr("name", users[1].UserId)
                     //user 3
-                    $("#user3photo").attr("src", userOptions[2].photo)
-                    $("#user3name").html(userOptions[2].fullname)
-                    $("#user3age").html(userOptions[2].age)
-                    $("#user3bio").html(userOptions[2].bio)
+                    $("#user3photo").attr("src", users[2].User.photo)
+                    $("#user3name").html(users[2].User.fullname)
+                    $("#user3age").html(users[2].User.age)
+                    $("#user3bio").html(users[2].User.bio)
+                    $("#userid3").attr("name", users[2].UserId)
+                    //user 4
+                    $("#user4photo").attr("src", users[3].User.photo)
+                    $("#user4name").html(users[3].User.fullname)
+                    $("#user4age").html(users[3].User.age)
+                    $("#user4bio").html(users[3].User.bio)
+                    $("#userid4").attr("name", users[3].UserId)
 
+                    
+                    
                 });
+            
+                console.log()
+
+            $('.imageResize').each(function () {
+
+                var maxWidth = $(this).width(); // Max width for the image
+                var maxHeight = $(this).height();   // Max height for the image
+                $(this).css("width", "auto").css("height", "auto"); // Remove existing CSS
+                $(this).removeAttr("width").removeAttr("height"); // Remove HTML attributes
+                var width = $(this).width();    // Current image width
+                var height = $(this).height();  // Current image height
+
+                if (width > height) {
+                    // Check if the current width is larger than the max
+                    if (width > maxWidth) {
+                        var ratio = maxWidth / width;   // get ratio for scaling image
+                        $(this).css("width", maxWidth); // Set new width
+                        $(this).css("height", height * ratio);  // Scale height based on ratio
+                        height = height * ratio;    // Reset height to match scaled image
+                    }
+                } else {
+                    // Check if current height is larger than max
+                    if (height > maxHeight) {
+                        var ratio = maxHeight / height; // get ratio for scaling image
+                        $(this).css("height", maxHeight);   // Set new height
+                        $(this).css("width", width * ratio);    // Scale width based on ratio
+                        width = width * ratio;  // Reset width to match scaled image
+                    }
+                }
+            });
+        });
+//click events for the each button
+        //Button 1
+        $("#userid1").on("click", function () {
+            let x = document.getElementById("userid1").getAttribute("name")
+            $.ajax({
+                url: "/survey/" + x,
+                method: "GET"
+            }).then(
+                function (user) {
+                    window.location.pathname = `/profile/${user.id}`
+
+
+
+                
+            // console.log("my name is " + x)
+            // console.log("i hit the button")
+           // window.location.replace("/survey/:userid")
+            // $.ajax({
+            //     url: "/profile",
+            //     method: "GET",
+            // }).then(
+            //     function (result) {
+            
         })
+    })
+        
+        //Button 2
+        $("#userid2").on("click", function () {
+            let x = document.getElementById("userid2").getAttribute("name")
+            console.log("my name is " + x)
+            console.log("i hit the button")
+            //window.location.replace("profile.html")
+        })
+        //Button 3
+        $("#userid3").on("click", function () {
+            let x = document.getElementById("userid3").getAttribute("name")
+            console.log("my name is " + x)
+            console.log("i hit the button")
+            //window.location.replace("profile.html")
+        })
+        //Button 4
+        $("#userid4").on("click", function () {
+            let x = document.getElementById("userid4").getAttribute("name")
+            console.log("my name is " + x)
+            console.log("i hit the button")
+            //window.location.replace("profile.html")
+        })
+
 
         var instance = M.Carousel.init({
             fullWidth: true,
             indicators: true
         });
 
-        $(".mdc-button").on("click",function(){
-            // functionality for modal goes here
-            console.log("i hit the button")
-            window.location.replace("profile.html")
-        })
-       // instance.next();
 
     </script>
 </body>

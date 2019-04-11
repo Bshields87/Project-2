@@ -1,34 +1,40 @@
-var Sequelize = require("sequelize");
-// sequelize (lowercase) references our connection to the DB.
-var sequelize = require("../config/connection");
+module.exports = function (sequelize, DataTypes) {
+  var User = sequelize.define("User", {
+    email: DataTypes.STRING,
+    fullname: DataTypes.STRING,
+    age: DataTypes.INTEGER,
+    photo: DataTypes.STRING,
+    userName: DataTypes.STRING,
+    password: DataTypes.STRING,
+    bio: DataTypes.STRING,
+    datingPreference: DataTypes.STRING,
+    location: DataTypes.STRING,
+    createdAt: { type: DataTypes.DATE, defaultValue: DataTypes.NOW },
+    updatedAt: { type: DataTypes.DATE, defaultValue: DataTypes.NOW }
 
-//var Survey = require("./surveys")
+  });
 
-
-    var User = sequelize.define("User", {
-      email: Sequelize.STRING,
-      fullname: Sequelize.STRING,
-      age: Sequelize.INTEGER,
-      photo: Sequelize.STRING,
-      userName: Sequelize.STRING,
-      password: Sequelize.STRING,
-      bio: Sequelize.STRING,
-      datingPreference: Sequelize.STRING,
-      location: Sequelize.STRING,
-      createdAt: { type: Sequelize.DATE, defaultValue: Sequelize.NOW },
-      updatedAt: { type: Sequelize.DATE, defaultValue: Sequelize.NOW }
-     
+  User.associate = function (models) {
+    console.log(models)
+    // Associating User with Posts
+    // When an User is deleted, also delete any associated Posts
+    User.hasOne(models.Survey, {
+      onDelete: "cascade"
     });
 
-    // User.associate = function(models) {
-    //   // Associating User with Posts
-    //   // When an User is deleted, also delete any associated Posts
-    //   User.hasMany(models.Survey, {
-    //     onDelete: "cascade"
-    //   });
-      
-    // };
-  
-  // User.hasOne(Survey)
-    User.sync();
-    module.exports = User;
+  };
+  // User.associate = function (models) {
+  //   console.log(models)
+  //   // Associating User with Posts
+  //   // When an User is deleted, also delete any associated Posts
+  //   User.hasMany(models.Answers, {
+  //     onDelete: "cascade"
+  //   });
+
+  // };
+  return User;
+}
+
+
+
+

@@ -5,7 +5,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
   <title>Survey/Profile</title>
+
   <!--Import Google Icon Font-->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <!-- Compiled and minified CSS -->
@@ -14,10 +16,12 @@
 
 <body>
 
+
   <!--Navbar-->
   <nav>
     <div class="nav-wrapper">
       <a href="dashboard.html" class="brand-logo">suitr</a>
+
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <li><a href="login.html">Logout</a></li>
         <li><a href="inbox.html">Messages</a></li>
@@ -27,101 +31,103 @@
   </nav>
 
   <!--title-->
-  <div style="background-color: plum; tex" id="profileTitle">
-
+  <div style="background-color: plum" id="profileTitle">
     <h1>Profile/Survey Page</h1>
-    <h2>Take this to assess your compatibility with:</h2>
+    <h2>Take this survey to assess your compatibility with:</h2>
   </div>
-
   <div id="userInfo" name="userInfo" style="text-align: center; background-color: pink">
     <!--User Information-->
-    <p id="user1name">Joe</p>
-    <p id="user1age" class="black-text">24</p>
-    <p id="user1bio" class="black-text">I am a buff man.</p>
+    <div id="user1name"></div>
+    <h2 id="user1name"></h2>
+    <h3 id="user1age" class="black-text"></h3>
+    <p id="user1bio" class="black-text"></p>
     <img id="user1photo">
-
   </div>
-
+  <!--Question 1 -->
+  <form action="answerSurvey" method="POST" class='answerSurvey'>
   <div class="container" name="survey" id="survey">
     <div class="row">
       <form class="col s12">
+        <div class="row"></div>
+        <p id="question1" class="black-text"></p>
+        <div class="input-field col s12">
+          <textarea name="answer1" id="answer1" class="materialize-textarea"></textarea>
+          <label for="answer1">Type Your Response</label>
+        </div>
+    </div>
+    </form>
+
+    <!--Question 2 -->
+    <div class="row">
+      <form class="col s12">
         <div class="row">
-          <p>Question 1:</p><div id="question1"></div>
+          <p id="question2" class="black-text"></p>
           <div class="input-field col s12">
-              <textarea name="answer1" id="answer1" class="materialize-textarea"></textarea>
-              <label for="answer1">Type your response</label>
-            <!-- <textarea id="textarea1" class="materialize-textarea"></textarea>
-            <label for="textarea1">Type Your Response</label> -->
+            <textarea name="answer2" id="answer2" class="materialize-textarea"></textarea>
+            <label for="answer2">Type Your Response</label>
+
           </div>
         </div>
       </form>
     </div>
 
+
+   
+    <!--Question 3 -->
     <div class="row">
       <form class="col s12">
         <div class="row">
-          <p>Question 2:</p><div id="question2"></div>
+          <p id="question3" class="black-text"></p>
           <div class="input-field col s12">
-              <textarea name="answer2" id="answer2" class="materialize-textarea"></textarea>
-              <label for="answer2">Type your response</label>
-            <!-- <textarea id="textarea1" class="materialize-textarea"></textarea>
-            <label for="textarea1">Type Your Response</label> -->
+            <textarea name="answer3" id="answer3" class="materialize-textarea"></textarea>
+            <label for="answer3">Type Your Response</label>
+
           </div>
         </div>
       </form>
     </div>
 
+
+  
+    <!--Question 4 -->
     <div class="row">
       <form class="col s12">
         <div class="row">
-          <p>Question 3:</p><div id="question3"></div>
+          <p id="question4" class="black-text"></p>
           <div class="input-field col s12">
-              <textarea name="answer3" id="answer3" class="materialize-textarea"></textarea>
-                    <label for="answer3">Type your response</label>
-            <!-- <textarea id="textarea1" class="materialize-textarea"></textarea>
-            <label for="textarea1">Type Your Response</label> -->
+            <textarea name="answer4" id="answer4" class="materialize-textarea"></textarea>
+            <label for="answer4">Type Your Response</label>
+
           </div>
         </div>
       </form>
     </div>
 
+
+    
+    <!--Question 5 -->
     <div class="row">
       <form class="col s12">
         <div class="row">
-          <p>Question 4:</p><div id="question4"></div>
+          <p id="question5" class="black-text"></p>
           <div class="input-field col s12">
-              <textarea name="answer4" id="answer4" class="materialize-textarea"></textarea>
-              <label for="answer4">Type your response</label>
-            <!-- <textarea id="textarea1" class="materialize-textarea"></textarea>
-            <label for="textarea1">Type Your Response</label> --> 
+            <textarea name="answer5" id="answer5" class="materialize-textarea"></textarea>
+            <label for="answer5">Type Your Response</label>
+
           </div>
         </div>
       </form>
     </div>
 
-    <div class="row">
-      <form class="col s12">
-        <div class="row">
-          <p>Question 5:</p><div id="question5"></div>
-          <div class="input-field col s12">
-              <textarea name="answer5" id="answer5" class="materialize-textarea"></textarea>
-              <label for="answer5">Type your response</label>
-            <!-- <textarea id="textarea1" class="materialize-textarea"></textarea>
-            <label for="textarea1">Type Your Response</label> -->
-          </div>
-        </div>
-      </form>
-    </div>
-    <a href="#!" class="btn purple waves-effect waves-yellow" id="submit">Submit</a>
+    <a href="#!" type="submit" class="btn purple waves-effect waves-yellow" id="submit">Submit</a>
   </div>
 
   <div id="results" style="display:none; text-align: center">
     <h1> Thanks! Your survey has been sent.</h1>
     <a href="dashboard.html" class="btn purple waves-effect waves-yellow" id="home">Return Home</a>
   </div>
-
   <!--UPON SUBMIT, hide the above, and show a message.... ALso, send all those results to 1)database 2)user's inbox-->
-
+  </form>
   <!--Footer-->
   <div>
     <footer class="page-footer">
@@ -144,10 +150,6 @@
 
 </body>
 
-
-
-
-
 <!--javascript business-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
 <!-- Compiled and minified JavaScript -->
@@ -155,34 +157,56 @@
 <script>
   M.AutoInit();
   document.addEventListener('DOMContentLoaded', function () {
-    var elems = document.querySelector('.carousel');
-    var instances = M.Carousel.init(elems);
+    
+    var pathArray = window.location.pathname.split('/');
+    console.log(pathArray[2])
+
     $.ajax({
-      url: "/users",
+      url: "/user/" + pathArray[2],
       method: "GET",
     }).then(
-      function (result) {
-        let users = (result)
-        let userOptions = Object.values(users)
-        console.log(users)
+      function (User) {
+        console.log(User)
 
-        //user 1
-        $("#user1photo").attr("src", userOptions[0].photo)
-        $("#user1name").html(userOptions[0].fullname)
-        $("#user1age").html(userOptions[0].age)
-        $("#user1bio").html(userOptions[0].bio)
+        //User Profile Info
+        $("#user1photo").attr("src", User.User.photo)
+        $("#user1name").html(User.User.fullname)
+        $("#user1age").html(User.User.age)
+        $("#user1bio").html(User.User.bio)
+        $("#question1").html("Question 1: " + User.question1)
+        $("#question2").html("Question 2: " + User.question2)
+        $("#question3").html("Question 3: " + User.question3)
+        $("#question4").html("Question 4: " + User.question4)
+        $("#question5").html("Question 5: " + User.question5)
+
 
       });
+      $("#submit").click(function () {
+        console.log($("#answer1").val())
+    $.ajax({
+      url: "/user/" + pathArray[2],
+      method: "POST",
+      data: {
+       "answer 1:": $("#answer1").val(),
+        "answer 2:" : $("#answer2").val(),
+        "answer 3:" : $("#answer3").val(),
+        "answer 4:" : $("#answer4").val(),
+        "answer 5:" : $("#answer5").val()
+      }
+    
+    //  }).then(
+    //   function (result) {
+    //     console.log(result)
+    //    });
+    //   console.log($("#answer1").val().trim())
+    // $('#survey').hide()
+    // $('#profileTitle').hide()
+    // $("#results").show()
+   });
   })
-
+  })
   //hide/show functions for the submit button. 
-
-  $("#submit").click(function () {
-  $('#survey').hide()
-  $('#profileTitle').hide()
-  $("#results").show()
-});
-
+  
 </script>
 
 </html>
