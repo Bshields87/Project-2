@@ -18,28 +18,38 @@ module.exports = function (app) {
   //end route
 
   app.get('/user/:userid', async function (req, res) {
-
-    console.log(req.params)
+    var profileId= Object.values(req.params)
+    console.log(profileId)
     await db.Survey.findOne({
       include: [
         db.User
-      ]
-    }).then(User => {
-      console.log(User)
-      //console.log(User.id)
-      return res.json(User)
+      ],
+      where: {UserId : profileId}
+
+
+    }).then(user => {
+      console.log("who am i" + user)
+      console.log(user.id)
+      return res.json(user)
     })
   })
 
 app.post('/user/:userid', async function (req, res, err){
   var surveyAnswers = Object.values(req.body);
-  console.log(surveyAnswers)
+  var surveyId = Object.values(req.params)
+  console.log(surveyAnswers[0])
 
-  var answers = await db.answers.create({
+  await db.Answer.create({
+      answer1: surveyAnswers[0],
+      answer2: surveyAnswers[1],
+      answer3: surveyAnswers[2],
+      answer4: surveyAnswers[3],
+      answer5: surveyAnswers[4],
+      SurveyId: surveyId
 
-    
+
   })
-  //return res.json(surveyAnswers)
+  return res.json(surveyAnswers)
 })
 
 
@@ -111,19 +121,19 @@ app.post('/user/:userid', async function (req, res, err){
       question4: survey.question4,
       question5: survey.question5,
       UserId: req.params.userid
-    }).then(function (Survey) {
-      console.log(Survey)
+    }).then(function (user) {
+      console.log(user)
       return res.redirect(`/dashboard/${user.id}`)
     });
-    res.status(204).end();
+    
 
   })
 
-  app.get("/survey/:userid", function (req, res) {
+  app.get("/survey/:userid", async function (req, res) {
 
     console.log(req.params.userid)
     var userSurvey = req.params.userid
-    db.Survey.findOne({
+   await db.Survey.findOne({
       include: [
         db.User
       ],
@@ -132,10 +142,10 @@ app.post('/user/:userid', async function (req, res, err){
       console.log(user.id);
       const id = user.User.id;
       console.log(id);
-      // console.log(user.User.id)
+       console.log(user.User.id)
       // console.log("my id is " + user.User.id)
       //res.send(`profile/${user.User.id}`)
-      return res.json(user)
+    return res.json(user)
     })
 
     //return res.json(userSurvey)

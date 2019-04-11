@@ -211,23 +211,75 @@
         //Button 2
         $("#userid2").on("click", function () {
             let x = document.getElementById("userid2").getAttribute("name")
-            console.log("my name is " + x)
-            console.log("i hit the button")
-            //window.location.replace("profile.html")
+            $.ajax({
+                url: "/survey/" + x,
+                method: "GET"
+            }).then(
+                function (user) {
+                    window.location.pathname = `/profile/${user.id}`
+
+
+
+                
+            // console.log("my name is " + x)
+            // console.log("i hit the button")
+           // window.location.replace("/survey/:userid")
+            // $.ajax({
+            //     url: "/profile",
+            //     method: "GET",
+            // }).then(
+            //     function (result) {
+            
+        })
+          
         })
         //Button 3
         $("#userid3").on("click", function () {
             let x = document.getElementById("userid3").getAttribute("name")
-            console.log("my name is " + x)
-            console.log("i hit the button")
-            //window.location.replace("profile.html")
+            $.ajax({
+                url: "/survey/" + x,
+                method: "GET"
+            }).then(
+                function (user) {
+                    window.location.pathname = `/profile/${user.id}`
+
+
+
+                
+            // console.log("my name is " + x)
+            // console.log("i hit the button")
+           // window.location.replace("/survey/:userid")
+            // $.ajax({
+            //     url: "/profile",
+            //     method: "GET",
+            // }).then(
+            //     function (result) {
+            
+        })
         })
         //Button 4
         $("#userid4").on("click", function () {
             let x = document.getElementById("userid4").getAttribute("name")
-            console.log("my name is " + x)
-            console.log("i hit the button")
-            //window.location.replace("profile.html")
+            $.ajax({
+                url: "/survey/" + x,
+                method: "GET"
+            }).then(
+                function (user) {
+                    window.location.pathname = `/profile/${user.id}`
+
+
+
+                
+            // console.log("my name is " + x)
+            // console.log("i hit the button")
+           // window.location.replace("/survey/:userid")
+            // $.ajax({
+            //     url: "/profile",
+            //     method: "GET",
+            // }).then(
+            //     function (result) {
+            
+        })
         })
 
 
