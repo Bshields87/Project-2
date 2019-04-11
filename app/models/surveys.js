@@ -18,8 +18,19 @@ module.exports = function (sequelize, DataTypes) {
         allowNull: false
       }
     });
-  };
+  //   Survey.associate = function (models) {
+  //     console.log(models)
+  //     // Associating Survey with Posts
+  //     // When an Survey is deleted, also delete any associated Posts
+  //     Survey.hasMany(models.Answers, {
+  //       onDelete: "cascade"
+  //     });
+  
+  //   };
+};
   return Survey;
+ 
+
 }
 
 
@@ -30,7 +41,3 @@ module.exports = function (sequelize, DataTypes) {
 
 
 
-<<<<<<< HEAD
-=======
-    module.exports = Survey;
->>>>>>> 3176fb08ae1b8511c37625e10d75558235623103

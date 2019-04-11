@@ -27,9 +27,10 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, "../public/dashboard.html"));
   });
 
-<<<<<<< HEAD
- 
+  //route to user profile
+  app.get("/profile/:userid", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/profile.html"));
+  });
+  
+
 };
-=======
-};
->>>>>>> 3176fb08ae1b8511c37625e10d75558235623103
