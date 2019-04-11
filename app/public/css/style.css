@@ -27,3 +27,31 @@
     font-weight: bold;
     color: #ffffff;
 }
+
+.carousel {
+    background-color:#ea80fc;
+}
+
+    @media only screen and (max-width: 600px) {
+        .carousel {
+          background-color: #ea80fc;
+
+        }
+        body {background-color:#ea80fc}
+      }
+
+      body {
+        display: flex;
+        min-height: 100vh;
+        flex-direction: column;
+      }
+    
+      main {
+        flex: 1 0 auto;
+      }
+
+       /* .container {
+    width: 200%;} */
+
+        
+       

@@ -5,7 +5,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+
+  <title>Survey/Profile</title>
+
   <!--Import Google Icon Font-->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <!-- Compiled and minified CSS -->
@@ -13,10 +15,13 @@
 </head>
 
 <body>
+
+
   <!--Navbar-->
   <nav>
     <div class="nav-wrapper">
-      <a href="dashboard.html" class="brand-logo">Brand</a>
+      <a href="dashboard.html" class="brand-logo">suitr</a>
+
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <li><a href="login.html">Logout</a></li>
         <li><a href="inbox.html">Messages</a></li>
@@ -24,6 +29,7 @@
       </ul>
     </div>
   </nav>
+
   <!--title-->
   <div style="background-color: plum" id="profileTitle">
     <h1>Profile/Survey Page</h1>
@@ -59,10 +65,14 @@
           <div class="input-field col s12">
             <textarea name="answer2" id="answer2" class="materialize-textarea"></textarea>
             <label for="answer2">Type Your Response</label>
+
           </div>
         </div>
       </form>
     </div>
+
+
+   
     <!--Question 3 -->
     <div class="row">
       <form class="col s12">
@@ -71,10 +81,14 @@
           <div class="input-field col s12">
             <textarea name="answer3" id="answer3" class="materialize-textarea"></textarea>
             <label for="answer3">Type Your Response</label>
+
           </div>
         </div>
       </form>
     </div>
+
+
+  
     <!--Question 4 -->
     <div class="row">
       <form class="col s12">
@@ -83,10 +97,14 @@
           <div class="input-field col s12">
             <textarea name="answer4" id="answer4" class="materialize-textarea"></textarea>
             <label for="answer4">Type Your Response</label>
+
           </div>
         </div>
       </form>
     </div>
+
+
+    
     <!--Question 5 -->
     <div class="row">
       <form class="col s12">
@@ -95,18 +113,21 @@
           <div class="input-field col s12">
             <textarea name="answer5" id="answer5" class="materialize-textarea"></textarea>
             <label for="answer5">Type Your Response</label>
+
           </div>
         </div>
       </form>
     </div>
+
     <a href="#!" type="submit" class="btn purple waves-effect waves-yellow" id="submit">Submit</a>
   </div>
+
   <div id="results" style="display:none; text-align: center">
     <h1> Thanks! Your survey has been sent.</h1>
     <a href="dashboard.html" class="btn purple waves-effect waves-yellow" id="home">Return Home</a>
   </div>
-</form>
   <!--UPON SUBMIT, hide the above, and show a message.... ALso, send all those results to 1)database 2)user's inbox-->
+  </form>
   <!--Footer-->
   <div>
     <footer class="page-footer">
@@ -126,7 +147,9 @@
       </div>
     </footer>
   </div>
+
 </body>
+
 <!--javascript business-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
 <!-- Compiled and minified JavaScript -->
@@ -134,6 +157,7 @@
 <script>
   M.AutoInit();
   document.addEventListener('DOMContentLoaded', function () {
+    
     var pathArray = window.location.pathname.split('/');
     console.log(pathArray[2])
 
