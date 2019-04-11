@@ -23,7 +23,9 @@ module.exports = function(app) {
   });
   
   // route loads the dashboard page after login
+
   app.get("/dashboard/:userid", function(req, res) {
+
     res.sendFile(path.join(__dirname, "../public/dashboard.html"));
   });
 

@@ -1,24 +1,95 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta charset="utf-8">
-		<title>Login Form Tutorial</title>
-		<link rel="stylesheet" href="css/style.css" type="text/css" />
-		
-		
+	
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<!--Import Google Icon Font-->
+	<link href="https://fonts.googleapis.com/css?family=Bangers|Faster+One|Fugaz+One|Montserrat+Subrayada|Notable" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<!-- Compiled and minified CSS -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link href="https://fonts.googleapis.com/css?family=Fascinate+Inline|Staatliches" rel="stylesheet">
+
 	</head>
-	<body>
+
+			<body style="background-color: #ea80fc; font-family: 'Fascinate Inline', cursive;
+			font-family: 'Staatliches', cursive;">
+				<!--NavBar-->
+			
+				<nav>
+						<div class="nav-wrapper"  style="background-color: #b64fc8">
+						  <a href="dashboard.html" class="brand-logo center"><img src=css/loveLogo6.png style="width:75px"></a>
+						  <ul id="nav-mobile" class="left hide-on-med-and-down">
+								<li><h5>Name©</h5></a></li>
+							<li><a href="login.html">Logout</a></li>
+							<li><a href="inbox.html">Messages</a></li>
+							<li><a href="collapsible.html">Your Quiz</a></li>
+						  </ul>
+						</div>
+					  </nav>
+			
+				<div id="description" style="background-color: #ea80fc; text-align: center">
+			<h1 style="font-family: 'Bangers', cursive;">Welcome to Name®</h1>
+			<h4 style="font-family: 'Fugaz One', cursive;"> Remedy your online dating woes.</h4>
+			<h5 style="font-family: 'Staatliches', cursive;">
+				How it works: Scroll through the carousel below to find hotties near you. When someone piques your fancy, click to access their profile. 
+				You'll have to complete their survey prior to interacting. Once they recieve your answers, they'll reach out if you are a match!
+			</h5>
+			
+
+
+
+		<!--Here is the login form. We also need a "sign up" button to link to the registration page.-->
 		<div class="login-form">
+
 			<h1>Login</h1>
+
 			<form action="auth" method="POST">
 			
 				<input id="username" type="text" name="username" placeholder="Username" required>
 				<input id="password" type="password" name="password" placeholder="Password" required>
 				<input type="submit">
 			</form>
+
+<div class="sign-up" name="sign-up" id="sign-up">
+	<p>Don't have an account? Create one:</p>
+	<button class="btn waves-effect purple waves-yellow mb-3">Create Account</a>
+		<br>
+</div>
+<br>
 		</div>
+
+		<!--Footer-->
+ <div style="font-family: 'Fascinate Inline', cursive;
+ font-family: 'Staatliches', cursive; text-align: center;">
+	 <footer class="page-footer" style="background-color: #ffb2ff">
+		 <div class="container">
+			 <div class="row">
+				 <div>
+					 <h5 class="white-text">Name * The Carousel of Love</h5>
+					 <p class="grey-text text-lighten-4"> Created by: Bethany Sheilds, Max Kligman, and Wassim Khemici.</p>
+				 </div>
+			 </div>
+		 </div>
+		 <div class="footer-copyright" style="background-color: #b64fc8">
+			 <div class="container">
+				NAME © 2019 Copyright | Made in Berkeley, CA
+			 </div>
+		 </div>
+	 </footer>
+ </div>
+
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
 		<script>
+		
+		
+		$("#sign-up").on("click",function(){
+            window.location.replace("register.html")
+        })
 		
 // 		$(".login-form").on("submit", function(event) {
 //     // Make sure to preventDefault on a submit event.
