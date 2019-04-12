@@ -60,7 +60,7 @@ font-family: 'Staatliches', cursive;">
             <p id="user1bio" class="white-text"></p>
 
 
-            <img class="imageResize" id="user1photo">
+            <img class="imageResize" id="user1photo" style="width: 300px !important">
 
 
         </div>
@@ -76,7 +76,7 @@ font-family: 'Staatliches', cursive;">
             <h2 id="user2name"></h2>
             <h3 id="user2age" class="white-text"></h3>
             <p id="user2bio" class="white-text"></p>
-            <img class="imageResize" id="user2photo">
+            <img class="imageResize" id="user2photo" style="width: 300px !important">
 
         </div>
 
@@ -108,7 +108,7 @@ font-family: 'Staatliches', cursive;">
             <h2 id="user4name"></h2>
             <h3 id="user4age" class="white-text"></h3>
             <p id="user4bio" class="white-text"></p>
-            <img class="imageResize" id="user4photo">
+            <img class="imageResize" id="user4photo" style="width: 300px !important">
 
         </div>
     </div>
@@ -188,33 +188,33 @@ font-family: 'Staatliches', cursive;">
 
             console.log()
 
-            $('.imageResize').each(function () {
+//             $('.imageResize').each(function () {
 
-                var maxWidth = $(this).width(); // Max width for the image
-                var maxHeight = $(this).height();   // Max height for the image
-                $(this).css("width", "auto").css("height", "auto"); // Remove existing CSS
-                $(this).removeAttr("width").removeAttr("height"); // Remove HTML attributes
-                var width = $(this).width();    // Current image width
-                var height = $(this).height();  // Current image height
+//                 var maxWidth = $(this).width(); // Max width for the image
+//                 var maxHeight = $(this).height();   // Max height for the image
+//                 $(this).css("width", "auto").css("height", "auto"); // Remove existing CSS
+//                 $(this).removeAttr("width").removeAttr("height"); // Remove HTML attributes
+//                 var width = $(this).width();    // Current image width
+//                 var height = $(this).height();  // Current image height
 
-                if (width > height) {
-                    // Check if the current width is larger than the max
-                    if (width > maxWidth) {
-                        var ratio = maxWidth / width;   // get ratio for scaling image
-                        $(this).css("width", maxWidth); // Set new width
-                        $(this).css("height", height * ratio);  // Scale height based on ratio
-                        height = height * ratio;    // Reset height to match scaled image
-                    }
-                } else {
-                    // Check if current height is larger than max
-                    if (height > maxHeight) {
-                        var ratio = maxHeight / height; // get ratio for scaling image
-                        $(this).css("height", maxHeight);   // Set new height
-                        $(this).css("width", width * ratio);    // Scale width based on ratio
-                        width = width * ratio;  // Reset width to match scaled image
-                    }
-                }
-            });
+//                 if (width > height) {
+//                     // Check if the current width is larger than the max
+//                     if (width > maxWidth) {
+//                         var ratio = maxWidth / width;   // get ratio for scaling image
+//                         $(this).css("width", maxWidth); // Set new width
+//                         $(this).css("height", height * ratio);  // Scale height based on ratio
+//                         height = height * ratio;    // Reset height to match scaled image
+//                     }
+//                 } else {
+//                     // Check if current height is larger than max
+//                     if (height > maxHeight) {
+//                         var ratio = maxHeight / height; // get ratio for scaling image
+//                         $(this).css("height", maxHeight);   // Set new height
+//                         $(this).css("width", width * ratio);    // Scale width based on ratio
+//                         width = width * ratio;  // Reset width to match scaled image
+//                     }
+//                 }
+//             });
         });
 
         //click events for the each button
