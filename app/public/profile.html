@@ -1,51 +1,57 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+	<head>
+	
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<!--Import Google Icon Font-->
+	<link href="https://fonts.googleapis.com/css?family=Bangers|Faster+One|Fugaz+One|Montserrat+Subrayada|Notable" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<!-- Compiled and minified CSS -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link href="https://fonts.googleapis.com/css?family=Fascinate+Inline|Staatliches" rel="stylesheet">
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	</head>
 
-  <title>Survey/Profile</title>
+			<body style="background-color: #f3e5f5; font-family: 'Fascinate Inline', cursive;
+			font-family: 'Staatliches', cursive;">
+				<!--NavBar-->
+			
+        <nav>
+            <div class="nav-wrapper"  style="background-color: #b64fc8;  margin:0 !important">
+              <a href="dashboard.html" class="brand-logo center"><img src="/css/loveLogo6.png" style="width:75px"></a>
+              <ul id="nav-mobile" class="left hide-on-med-and-down">
+                    <li><h5>Name©</h5></a></li>
+                <li><a href="login.html">Logout</a></li>
+                <li><a href="inbox.html">Messages</a></li>
+                <li><a href="collapsible.html">Your Quiz</a></li>
+              </ul>
+            </div>
+          </nav>
 
-  <!--Import Google Icon Font-->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <!-- Compiled and minified CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-</head>
 
-<body>
-
-
-  <!--Navbar-->
-  <nav>
-    <div class="nav-wrapper">
-      <a href="dashboard.html" class="brand-logo">suitr</a>
-
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="login.html">Logout</a></li>
-        <li><a href="inbox.html">Messages</a></li>
-        <li><a href="collapsible.html">Your Quiz</a></li>
-      </ul>
-    </div>
-  </nav>
-
-  <!--title-->
-  <div style="background-color: plum" id="profileTitle">
-    <h1>Profile/Survey Page</h1>
-    <h2>Take this survey to assess your compatibility with:</h2>
-  </div>
-  <div id="userInfo" name="userInfo" style="text-align: center; background-color: pink">
+  
+  <div id="userInfo" name="userInfo" style="text-align: center; background-color: #ce93d8; margin:0 !important">
     <!--User Information-->
-    <div id="user1name"></div>
-    <h2 id="user1name"></h2>
-    <h3 id="user1age" class="black-text"></h3>
+    <h1 style="margin:0 !important">Meet:</h1><h1 id="user1name"></h1><h1 id="user1name"></h1>
+    <h2 id="user1age" class="black-text"></h3>
     <p id="user1bio" class="black-text"></p>
     <img id="user1photo">
-  </div>
+
+    
+  
   <!--Question 1 -->
-  <form action="answerSurvey" method="POST" class='answerSurvey'>
-  <div class="container" name="survey" id="survey">
+  <form action="answerSurvey" method="POST" class='answerSurvey' style="background-color: #f3e5f5">
+      <div style="background-color:#f3e5f5" id="profileTitle; margin:0 !important">
+          <h2 style="text-align: center" id="take">Take this survey to assess your compatibility:</h2>
+        </div>
+    </div>
+  
+
+  <div class="container" name="survey" id="survey" style="background-color: #f3e5f5">
     <div class="row">
       <form class="col s12">
         <div class="row"></div>
@@ -119,33 +125,33 @@
       </form>
     </div>
 
-    <a href="#!" type="submit" class="btn purple waves-effect waves-yellow" id="submit">Submit</a>
+    <a button href="#!" type="submit" class="btn purple waves-effect waves-purple" id="submit">Submit</a>
   </div>
 
   <div id="results" style="display:none; text-align: center">
     <h1> Thanks! Your survey has been sent.</h1>
-    <a href="dashboard.html" class="btn purple waves-effect waves-yellow" id="home">Return Home</a>
+    <button class="btn purple waves-effect waves-yellow" id="home">Return Home</a>
   </div>
   <!--UPON SUBMIT, hide the above, and show a message.... ALso, send all those results to 1)database 2)user's inbox-->
   </form>
   <!--Footer-->
-  <div>
-    <footer class="page-footer">
-      <div class="container">
-        <div class="row">
-          <div class="col l6 s12">
-            <h5 class="white-text">Footer Content</h5>
-            <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer
-              content.</p>
+  <div style="font-family: 'Fascinate Inline', cursive;
+  font-family: 'Staatliches', cursive; text-align: center;">
+      <footer class="page-footer" style="background-color: #ffb2ff">
+          <div class="container">
+              <div class="row">
+                  <div>
+                      <h5 class="white-text">Name * The Carousel of Love</h5>
+                      <p class="grey-text text-lighten-4"> Created by: Bethany Sheilds, Max Kligman, and Wassim Khemici.</p>
+                  </div>
+              </div>
           </div>
-        </div>
-      </div>
-      <div class="footer-copyright">
-        <div class="container">
-          © 2019 Copyright | Made in Berkeley, CA
-        </div>
-      </div>
-    </footer>
+          <div class="footer-copyright" style="background-color: #b64fc8">
+              <div class="container">
+                 NAME © 2019 Copyright | Made in Berkeley, CA
+              </div>
+          </div>
+      </footer>
   </div>
 
 </body>
@@ -155,6 +161,12 @@
 <!-- Compiled and minified JavaScript -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 <script>
+
+$("#results").on("click",function(){
+            window.location.replace("/dashboard/")
+        })
+
+
   M.AutoInit();
   document.addEventListener('DOMContentLoaded', function () {
     
@@ -194,17 +206,18 @@
         "answer 5:" : $("#answer5").val()
       }
     
-    //  }).then(
-    //   function (result) {
-    //     console.log(result)
-    //    });
-    //   console.log($("#answer1").val().trim())
-    // $('#survey').hide()
-    // $('#profileTitle').hide()
-    // $("#results").show()
+     }).then(
+      function (result) {
+        console.log(result)
+       });
+      console.log($("#answer1").val().trim())
+    $('#survey').hide()
+    $('#take').hide()
+    $('#profileTitle').hide()
+    $("#results").show()
    });
   })
-  })
+  
   //hide/show functions for the submit button. 
   
 </script>

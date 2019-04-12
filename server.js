@@ -15,7 +15,9 @@ var PORT = process.env.PORT || 3000;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// Static directory to be served
+// // Static directory to be served
+// app.use('/app/public', express.static(__dirname + "/app/public"));
+
 app.use(express.static("app/public"));
 
 // Routes

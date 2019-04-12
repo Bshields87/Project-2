@@ -111,8 +111,8 @@ app.post('/user/:userid', async function (req, res, err){
       question4: survey.question4,
       question5: survey.question5,
       UserId: req.params.userid
-    }).then(function (Survey) {
-      console.log(Survey)
+    }).then(function (user) {
+      console.log(user)
       return res.redirect(`/dashboard/${user.id}`)
     });
     res.status(204).end();
