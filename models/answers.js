@@ -6,7 +6,7 @@ module.exports = function (sequelize, DataTypes) {
       answer4: DataTypes.TEXT,
       answer5: DataTypes.TEXT,
       createdAt: { type: DataTypes.DATE, defaultValue: DataTypes.NOW },
-      updatedAt: { type: DataTypes.DATE, defaultValue: DataTypes.NOW },
+      updatedAt: { type: DataTypes.DATE, defaultValue: DataTypes.NOW }
     
     });
     Answer.associate = function (models) {
@@ -19,8 +19,8 @@ module.exports = function (sequelize, DataTypes) {
       });
     };
     // Answer.associate = function (models) {
-    //   // We're saying that a Answer should belong to an Author
-    //   // A Answer can't be created without an Author due to the foreign key constraint
+    //   // We're saying that a Answer should belong to User
+    //   // An Answer can't be created without a User due to the foreign key constraint
     //   Answer.belongsTo(models.User, {
     //     foreignKey: {
     //       allowNull: false

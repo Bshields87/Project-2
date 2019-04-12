@@ -1,7 +1,7 @@
 // *********************************************************************************
 // Server.js - This file is the initial starting point for the Node/Express server.
 // *********************************************************************************
-var db = require("./app/models")
+var db = require("./models")
 // Dependencies
 // =============================================================
 var express = require("express");
@@ -18,12 +18,12 @@ app.use(express.json());
 // // Static directory to be served
 // app.use('/app/public', express.static(__dirname + "/app/public"));
 
-app.use(express.static("app/public"));
+app.use(express.static("public"));
 
 // Routes
 // =============================================================
-require("./app/routes/api-routes.js")(app);
-require("./app/routes/html-routes.js")(app);
+require("./routes/api-routes")(app);
+require("./routes/html-routes.js")(app);
 
 // Starts the server to begin listening
 // =============================================================

@@ -2,41 +2,46 @@
 <html lang="en">
 
 <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Document</title>
-        <!--Import Google Icon Font-->
-        <link href="https://fonts.googleapis.com/css?family=Bangers|Faster+One|Fugaz+One|Montserrat+Subrayada|Notable" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <!-- Compiled and minified CSS -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-        <link rel="stylesheet" href="css/style.css">
-        <link href="https://fonts.googleapis.com/css?family=Fascinate+Inline|Staatliches" rel="stylesheet">
-    </head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/css?family=Bangers|Faster+One|Fugaz+One|Montserrat+Subrayada|Notable" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Fascinate+Inline|Staatliches" rel="stylesheet">
+</head>
 
 <body style="background-color: #ea80fc; font-family: 'Fascinate Inline', cursive;
 font-family: 'Staatliches', cursive;">
     <!--NavBar-->
 
     <nav>
-            <div class="nav-wrapper"  style="background-color: #b64fc8">
-              <a href="dashboard.html" class="brand-logo center"><img src="/css/loveLogo6.png" style="width:75px"></a>
-              <ul id="nav-mobile" class="left hide-on-med-and-down">
-                    <li><h5>Name©</h5></a></li>
+        <div class="nav-wrapper" style="background-color: #b64fc8">
+            <a href="dashboard.html" class="brand-logo center"><img src="/css/loveLogo6.png" style="width:75px"></a>
+            <ul id="nav-mobile" class="left hide-on-med-and-down">
+                <li>
+                    <h5>Name©</h5></a>
+                </li>
                 <li><a href="login.html">Logout</a></li>
                 <li><a href="inbox.html">Messages</a></li>
                 <li><a href="collapsible.html">Your Quiz</a></li>
-              </ul>
-            </div>
-          </nav>
-<div id="description" style="background-color: #ea80fc; text-align: center">
-<h1 style="font-family: 'Bangers', cursive;">Welcome to Name®</h1>
-<h4 style="font-family: 'Fugaz One', cursive;"> We're a modern dating app that shall remedy your online dating woes.</h4>
-<h5 style="font-family: 'Staatliches', cursive;">
-    How it works: Scroll through the carousel below to find hotties near you. When someone piques your fancy, click to access their profile. 
-    You'll have to complete their survey prior to interacting. Once they recieve your answers, they'll reach out if you are a match!
-</h5>
+            </ul>
+        </div>
+    </nav>
+    <div id="description" style="background-color: #ea80fc; text-align: center">
+        <h1 style="font-family: 'Bangers', cursive;">Welcome to Name®</h1>
+        <h4 style="font-family: 'Fugaz One', cursive;"> We're a modern dating app that shall remedy your online dating
+            woes.</h4>
+        <h5 style="font-family: 'Staatliches', cursive;">
+            How it works: Scroll through the carousel below to find hotties near you. When someone piques your fancy,
+            click to access their profile.
+            You'll have to complete their survey prior to interacting. Once they recieve your answers, they'll reach
+            out if you are a match!
+        </h5>
 
     </div>
     <!--Carousel Start-->
@@ -64,7 +69,7 @@ font-family: 'Staatliches', cursive;">
 
         <div class="carousel-item grey white-text" href="#two!">
 
-        
+
             <button class="mdc-button" id="userid2">
                 <span class="mdc-button__label">Send Message</span>
             </button>
@@ -79,7 +84,7 @@ font-family: 'Staatliches', cursive;">
 
         <div class="carousel-item grey white-text" href="#three!">
 
-    
+
             <button class="mdc-button" id="userid3">
                 <span class="mdc-button__label">Send Message</span>
             </button>
@@ -95,7 +100,7 @@ font-family: 'Staatliches', cursive;">
 
         <div class="carousel-item grey white-text" href="#four!">
 
-      
+
             <button class="mdc-button" id="userid4">
                 <span class="mdc-button__label">Send Message</span>
             </button>
@@ -117,13 +122,14 @@ font-family: 'Staatliches', cursive;">
                 <div class="row">
                     <div>
                         <h5 class="white-text">Name * The Carousel of Love</h5>
-                        <p class="grey-text text-lighten-4"> Created by: Bethany Sheilds, Max Kligman, and Wassim Khemici.</p>
+                        <p class="grey-text text-lighten-4"> Created by: Bethany Sheilds, Max Kligman, and Wassim
+                            Khemici.</p>
                     </div>
                 </div>
             </div>
             <div class="footer-copyright" style="background-color: #b64fc8">
                 <div class="container">
-                   NAME © 2019 Copyright | Made in Berkeley, CA
+                    NAME © 2019 Copyright | Made in Berkeley, CA
                 </div>
             </div>
         </footer>
@@ -142,7 +148,7 @@ font-family: 'Staatliches', cursive;">
         document.addEventListener('DOMContentLoaded', function () {
             var elems = document.querySelector('.carousel');
             var instances = M.Carousel.init(elems);
-         $.ajax({
+            $.ajax({
                 url: "/users",
                 method: "GET"
             }).then(
@@ -176,11 +182,11 @@ font-family: 'Staatliches', cursive;">
                     $("#user4bio").html(users[3].User.bio)
                     $("#userid4").attr("name", users[3].UserId)
 
-                    
-                    
+
+
                 });
-            
-                console.log()
+
+            console.log()
 
             $('.imageResize').each(function () {
 
@@ -210,7 +216,8 @@ font-family: 'Staatliches', cursive;">
                 }
             });
         });
-//click events for the each button
+
+        //click events for the each button
         //Button 1
         $("#userid1").on("click", function () {
             let x = document.getElementById("userid1").getAttribute("name")
@@ -221,21 +228,9 @@ font-family: 'Staatliches', cursive;">
                 function (user) {
                     window.location.pathname = `/profile/${user.id}`
 
-
-
-                
-            // console.log("my name is " + x)
-            // console.log("i hit the button")
-           // window.location.replace("/survey/:userid")
-            // $.ajax({
-            //     url: "/profile",
-            //     method: "GET",
-            // }).then(
-            //     function (result) {
-            
+                })
         })
-    })
-        
+
         //Button 2
         $("#userid2").on("click", function () {
             let x = document.getElementById("userid2").getAttribute("name")
@@ -245,22 +240,9 @@ font-family: 'Staatliches', cursive;">
             }).then(
                 function (user) {
                     window.location.pathname = `/profile/${user.id}`
-
-
-
-                
-            // console.log("my name is " + x)
-            // console.log("i hit the button")
-           // window.location.replace("/survey/:userid")
-            // $.ajax({
-            //     url: "/profile",
-            //     method: "GET",
-            // }).then(
-            //     function (result) {
-            
+                })
         })
-          
-        })
+
         //Button 3
         $("#userid3").on("click", function () {
             let x = document.getElementById("userid3").getAttribute("name")
@@ -271,20 +253,9 @@ font-family: 'Staatliches', cursive;">
                 function (user) {
                     window.location.pathname = `/profile/${user.id}`
 
-
-
-                
-            // console.log("my name is " + x)
-            // console.log("i hit the button")
-           // window.location.replace("/survey/:userid")
-            // $.ajax({
-            //     url: "/profile",
-            //     method: "GET",
-            // }).then(
-            //     function (result) {
-            
+                })
         })
-        })
+
         //Button 4
         $("#userid4").on("click", function () {
             let x = document.getElementById("userid4").getAttribute("name")
@@ -295,19 +266,7 @@ font-family: 'Staatliches', cursive;">
                 function (user) {
                     window.location.pathname = `/profile/${user.id}`
 
-
-
-                
-            // console.log("my name is " + x)
-            // console.log("i hit the button")
-           // window.location.replace("/survey/:userid")
-            // $.ajax({
-            //     url: "/profile",
-            //     method: "GET",
-            // }).then(
-            //     function (result) {
-            
-        })
+                })
         })
 
 

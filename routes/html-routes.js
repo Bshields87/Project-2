@@ -1,40 +1,36 @@
 var path = require("path");
 
-
-// Routes
-// =============================================================
 module.exports = function(app) {
 
   // Each of the below routes just handles the HTML page that the user gets sent to.
 
-  // index route loads view.html
+  // login page
   app.get("/", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/login.html"));
   });
   
 
-  // route loads the login in page
+  // new user personal info page
   app.get("/register", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/register.html"));
   });
 
+  //new user create survey page
   app.get("/quiz/:userid", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/makeQuiz.html"));
   });
   
-  // route loads the dashboard page after login
-
+  //user dashboard page
   app.get("/dashboard/:userid", function(req, res) {
-
-    res.sendFile(path.join(__dirname, "../public/dashboard.html"));
+res.sendFile(path.join(__dirname, "../public/dashboard.html"));
   });
 
-  //route to user profile
+  //user profile page
   app.get("/profile/:userid", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/profile.html"));
   });
   
-  //route to messages
+  //messenger page
   app.get('/messages', function(req, res){
     res.sendFile(path.join(__dirname, '/../public/inbox.html'));
 })

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <!--Import Google Icon Font-->
+  <link href="https://fonts.googleapis.com/css?family=Bangers|Faster+One|Fugaz+One|Montserrat+Subrayada|Notable" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Fascinate+Inline|Staatliches" rel="stylesheet">
+
+</head>
+
+<body style="background-color: #ea80fc; font-family: 'Fascinate Inline', cursive;
+font-family: 'Staatliches', cursive;">
+  <!--NavBar-->
+
+  <nav>
+    <div class="nav-wrapper" style="background-color: #b64fc8">
+      <a href="dashboard.html" class="brand-logo center"><img src=css/loveLogo6.png style="width:75px"></a>
+      <ul id="nav-mobile" class="left hide-on-med-and-down">
+        <li>
+          <h5>Name©</h5></a>
+        </li>
+        <li><a href="login.html">Logout</a></li>
+        <li><a href="inbox.html">Messages</a></li>
+        <li><a href="collapsible.html">Your Quiz</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div id="description" style="background-color: #ea80fc; text-align: center">
+    <h1 style="font-family: 'Bangers', cursive;">Welcome to Name®</h1>
+    <h4 style="font-family: 'Fugaz One', cursive;"> We're a modern dating app that shall remedy your online dating
+      woes.</h4>
+    <h5 style="font-family: 'Staatliches', cursive;">
+
+    </h5>
+    <!DOCTYPE html>
+    <html lang="en-us">
+
+    <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Messages</title>
+      <!-- Materialize CSS -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+      <!-- jQuery -->
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+      <!-- Moment.js -->
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.16.0/moment.min.js"></script>
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!-- CSS -->
+      <link rel="stylesheet" type="text/css" href="css/style.css">
+    </head>
+
+    <body>
+      <nav>
+        <div class="nav-wrapper">
+          <a href="#" class="brand-logo">Brand</a>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="login.html">Logout</a></li>
+            <li><a href="google.com">Messages</a></li>
+            <li><a href="collapsible.html">Your Quiz</a></li>
+          </ul>
+        </div>
+      </nav>
+
+      <div class="row content-wrapper">
+        <!-- MESSAGE INPUT -->
+        <div class="message-input-wrapper col s12">
+          <div id="modal1" class="modal dismissible opacity">
+            <div class="modal-content">
+              <!-- <h6>New Message:</h6> -->
+              <form class="" id='messageForm'>
+                <div class="row">
+                  <div class="input-field col s12">
+                    <textarea id="message" class="materialize-textarea" data-length="1000"></textarea>
+                    <label for="message"><strong>New Message:</strong></strong></label>
+                  </div>
+                </div>
+                <button class="btn btn-large waves-effect waves-light purple darken-3" type="submit" name="action">Submit
+                  <i class="material-icons right">send</i>
+                </button>
+                <!-- <a class="btn btn-large waves-effect waves-light purple lighten-2 " id="to-inbox">Inbox</a> -->
+              </form>
+            </div>
+            <div class="modal-footer">
+              <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="inbox-wrapper col s12">
+          <!-- INBOX -->
+          <div class="">
+
+            <table class="striped">
+              <thead>
+                <tr>
+                  <th>
+                    Message
+                    <a class="btn-floating btn-large waves-effect waves-light purple lighten-2" id="inbox-refresh"><i
+                        class="material-icons">refresh</i></a>
+                    <a class="btn-floating btn-large waves-effect waves-light purple darken-2 modal-trigger" href="#modal1"
+                      id="new-message"><i class="material-icons">add</i></a>
+                  </th>
+                  <th>From</th>
+                  <th>Time</th>
+                  <th>Delete</th>
+                </tr>
+              </thead>
+              <tbody id='chat-table'>
+
+              </tbody>
+            </table>
+
+          </div>
+        </div>
+
+      </div>
+
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+      <script>
+        $(document).ready(function () {
+          console.log("oi mate, doc ready");
+
+          var $messageForm = $("#messageForm");
+          var $message = $("#message");
+          var $chat = $("#chat-table");
+          var $delete = $("#delete-message");
+          var $iRefresh = $("#inbox-refresh");
+          var $toInbox = $("#to-inbox");
+          var $newMessage = $("#new-message");
+          var $messageWrapper = $(".message-input-wrapper");
+          var $inboxWrapper = $(".inbox-wrapper")
+
+
+
+          var messages;
+          var newMessage;
+
+          getMessages();
+
+          function getMessages() {
+            $.get("messages/all", function (data) {
+              // console.log("Messages: ", data);
+              messages = data;
+              populateRows();
+            });
+          }
+
+          function populateRows() {
+            $chat.empty();
+            messagesToAdd = [];
+            for (var i = 0; i < messages.length; i++) {
+              messagesToAdd.push(createRow(messages[i]));
+            }
+            $chat.append(messagesToAdd.reverse());
+          }
+
+          function createRow(newMessage) {
+            // console.log("trying to get",newMessage);
+            var newTableRow = $("<tr>");
+            // newTableRow.attr("id", newMessage.id);
+            newTableRow.append("<td>" + newMessage.body + "</td>");
+            newTableRow.append("<td>" + newMessage.from + "</td>");
+            newTableRow.append(
+              "<td>" + moment(newMessage.post_time).fromNow() + "</td>"
+            );
+
+            newTableRow.append(
+              `<td><a class="delete btn-floating red" data-message-id=${newMessage.id} id="delete-message"><i class="material-icons">delete</i></a></td>`
+            );
+
+            return newTableRow;
+          }
+
+          var arbitraryUserSelector = function () {
+            arbitraryUserList = ['Jane', 'Martha Stewart', 'The Pope', 'Snoop', 'Joe Biden']
+            var randomUser = arbitraryUserList[Math.floor(Math.random() * arbitraryUserList.length)];
+            return randomUser;
+          }
+
+          function deleteMessage() {
+            var id = $(this).attr('data-message-id')
+
+
+            $.ajax({
+              method: "DELETE",
+              url: "/messages/delete/" + id
+            }).then(function () {
+              getMessages();
+            });
+          }
+
+          // This is the convention for all event listeners
+          // This also works for dynamically rendered buttons
+
+          $(document).on('click', '.delete', deleteMessage);
+
+          $messageForm.submit(function (e) {
+            e.preventDefault();
+            newMessage = {
+              from: arbitraryUserSelector(),
+              body: $message.val().trim(),
+              post_time: moment().format("YYYY-MM-DD HH:mm:ss")
+            };
+            console.log(newMessage);
+
+            $.post("/messages/new", newMessage).then(function () {
+              getMessages();
+              $message.val("");
+            });
+
+          });
+
+          $iRefresh.click(function () {
+            // console.log('click')
+            getMessages();
+          });
+
+          $delete.click(function () {
+            // console.log("click");
+            deleteMessage();
+          });
+
+
+
+
+          $newMessage.on("click", function () {
+            // functionality for modal goes here
+            $('.modal').modal();
+
+            console.log("modal opened")
+          })
+
+        });
+      </script>
+    </body>
+
+    </html>
+  </div>
+
+
+
+</body>
+
+</html>
