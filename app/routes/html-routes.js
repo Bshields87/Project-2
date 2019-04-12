@@ -34,5 +34,9 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, "../public/profile.html"));
   });
   
+  //route to messages
+  app.get('/messages', function(req, res){
+    res.sendFile(path.join(__dirname, '/../public/inbox.html'));
+})
 
 };

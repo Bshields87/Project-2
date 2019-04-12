@@ -124,7 +124,7 @@
 
   <div id="results" style="display:none; text-align: center">
     <h1> Thanks! Your survey has been sent.</h1>
-    <a href="dashboard.html" class="btn purple waves-effect waves-yellow" id="home">Return Home</a>
+    <a class="btn purple waves-effect waves-yellow" id="home">Return Home</a>
   </div>
   <!--UPON SUBMIT, hide the above, and show a message.... ALso, send all those results to 1)database 2)user's inbox-->
   </form>
@@ -199,13 +199,18 @@
     //     console.log(result)
     //    });
     //   console.log($("#answer1").val().trim())
-    // $('#survey').hide()
-    // $('#profileTitle').hide()
-    // $("#results").show()
+   
    });
+   $('#survey').hide()
+    $('#profileTitle').hide()
+    $("#results").show()
+
+    $("#home").click(function(){
+      window.location.pathname = `/dashboard/1`
+    })
   })
   })
-  //hide/show functions for the submit button. 
+  
   
 </script>
 

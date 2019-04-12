@@ -153,4 +153,38 @@ app.post('/user/:userid', async function (req, res, err){
 
   })
 
+  app.get("/messages/all", function (req, res) {
+    Message.findAll({}).then(function (results) {
+        res.json(results)
+    })
+});
+
+ // new message
+ app.post("/messages/new", function (req, res) {
+  console.log("New Message: " + req.body)
+
+  Message.create({
+      from: req.body.from,
+      body: req.body.body,
+      post_time: req.body.post_time
+  }).then(function (results) {
+      res.json(results)
+  });
+});
+
+ //delete
+ app.delete("/messages/delete/:id", function(req, res) {
+  console.log("delete: " + req.body)
+
+  Message.destroy({
+      where:{
+          id: req.params.id
+      }
+  }).then(function(Message){
+      console.log('deleted message with id: ', req.params.id);
+      res.json(Message)
+
+  });
+
+});
 }
