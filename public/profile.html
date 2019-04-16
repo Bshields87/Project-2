@@ -26,7 +26,7 @@
       <a href="dashboard.html" class="brand-logo center"><img src="/css/loveLogo6.png" style="width:75px"></a>
       <ul id="nav-mobile" class="left hide-on-med-and-down">
         <li>
-          <h5>Name©</h5></a>
+          <h5>Carousel of Love©</h5></a>
         </li>
         <li><a href="login.html">Logout</a></li>
         <li><a href="inbox.html">Messages</a></li>
@@ -136,7 +136,7 @@
 
   <div id="results" style="display:none; text-align: center">
     <h1> Thanks! Your survey has been sent.</h1>
-    <button href="dashboard.html" class="btn purple waves-effect waves-yellow" id="home">Return Home</a>
+    <button class="btn purple waves-effect waves-yellow" id="home">Return Home</a>
   </div>
   <!--UPON SUBMIT, hide the above, and show a message.... ALso, send all those results to 1)database 2)user's inbox-->
   </form>
@@ -147,14 +147,14 @@
       <div class="container">
         <div class="row">
           <div>
-            <h5 class="white-text">Name * The Carousel of Love</h5>
+            
             <p class="grey-text text-lighten-4"> Created by: Bethany Sheilds, Max Kligman, and Wassim Khemici.</p>
           </div>
         </div>
       </div>
       <div class="footer-copyright" style="background-color: #b64fc8">
         <div class="container">
-          NAME © 2019 Copyright | Made in Berkeley, CA
+         Carousel of Love © 2019 Copyright | Made in Berkeley, CA
         </div>
       </div>
     </footer>
@@ -168,9 +168,9 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 <script>
 
-  $("#results").on("click", function () {
-    window.location.replace("/dashboard/")
-  })
+  // $("#results").on("click", function () {
+  //   window.location.replace("/dashboard/")
+  // })
 
 
   M.AutoInit();
@@ -219,11 +219,16 @@
       $('#profileTitle').hide()
       $("#results").show()
 
-      $("#home").click(function () {
-         window.location.pathname = `/dashboard/3`
-      })
+      // $("#home").click(function () {
+      //    window.location.url = `/dashboard/3`
+      // })
     })
   })
+      $("#home").on("click", function (e) {
+        e.preventDefault();
+        console.log("got hit")
+           window.location.pathname = `/dashboard/3`; 
+        })
 
 
 </script>

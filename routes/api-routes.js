@@ -64,6 +64,7 @@ module.exports = function (app) {
     console.log("this is me", whereUser)
 
     if (!req.body.username || !req.body.password) {
+      
       res.send('login failed');
     } else {
       // The following code return an instance of the user if it was found.
@@ -76,6 +77,7 @@ module.exports = function (app) {
         return res.redirect(`/dashboard/${user.id}`);
 
       } else {
+        
         console.log("ERROR")
         res.send(err)
       }
